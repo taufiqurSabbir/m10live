@@ -123,31 +123,34 @@ class NewsArticle {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(height: 50,width: 50,),
-                    Padding(
-                      padding: const EdgeInsets.all(50.0),
-                      child: Container(
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+
+                      Padding(
+                        padding: const EdgeInsets.all(50.0),
+                        child: Container(
+                            width: 150,
+                            height: 150,
+                            child: Image.network(
+                              news[index].imageUrl,
+                            )),
+                      ),
+                     
+                      const VerticalDivider(
+                        color: Colors.black,
+                      ),
+                      
+                      Container(
                           width: 150,
                           height: 150,
                           child: Image.network(
                             news[index].imageUrl,
                           )),
-                    ),
-                    Divider(
-                      color: Colors.black,
-                    ),
-                    
-                    Container(
-                        width: 150,
-                        height: 150,
-                        child: Image.network(
-                          news[index].imageUrl,
-                        )),
-                    SizedBox(height: 50,width: 50,),
-                  ],
+
+                    ],
+                  ),
                 ),
               );
 
